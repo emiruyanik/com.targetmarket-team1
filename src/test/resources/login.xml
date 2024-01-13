@@ -1,0 +1,15 @@
+<suite name = "login">
+    <test name = "testLoginWithChromeDriver">
+        <parameter name ="browser" value ="chrome"/>
+        <classes>
+            <class name = "login_page_tests.LoginProcessTest"/>
+        </classes>
+    </test>
+
+    <test name = "testLoginWithEdgeDriver">
+        <parameter name ="browser" value ="edge"/>
+        <classes>
+            <class name = "login_page_tests.LoginProcessTest"/>
+        </classes>
+    </test>
+</suite>
