@@ -1,15 +1,28 @@
-<suite name = "login">
+<suite name = "login" parallel ="method" thread-count="3">
     <test name = "testLoginWithChromeDriver">
         <parameter name ="browser" value ="chrome"/>
         <classes>
-            <class name = "login_page_tests.LoginProcessTest"/>
+            <class name = "login_page_tests.LoginProcessTest">
+                <method>
+                    <include>testLoginProcessWithValidCredentials</include>
+                    <include>testLoginProcessWithLockedUsername</include>
+                    <include>testLoginProcessWithInvalidCredentials</include>
+                </method>
+
+            </class>
         </classes>
     </test>
 
     <test name = "testLoginWithEdgeDriver">
         <parameter name ="browser" value ="edge"/>
         <classes>
-            <class name = "login_page_tests.LoginProcessTest"/>
+            <class name = "login_page_tests.LoginProcessTest">
+                <method>
+                    <include>testLoginProcessWithValidCredentials</include>
+                    <include>testLoginProcessWithLockedUsername</include>
+                    <include>testLoginProcessWithInvalidCredentials</include>
+                </method>
+            </class>
         </classes>
     </test>
 </suite>
