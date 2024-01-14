@@ -14,6 +14,15 @@ public class TargetMarketLoginPage extends BasePage {
 	@FindBy(id = "login-button")
 	private WebElement loginButton;
 
+	@FindBy(id = "username-error-alert")
+	private WebElement lockedUserErrorMessage;
+
+	@FindBy(id = "username-error-alert")
+	private WebElement invalidUserNameErrorMessage;
+
+	@FindBy(id = "password-error-alert")
+	private WebElement invalidPasswordErrorMessage;
+
 	public void enterUserName(String username) {
 		usernameTextField.sendKeys(username);
 	}
@@ -30,14 +39,18 @@ public class TargetMarketLoginPage extends BasePage {
 		enterUserName(username);
 		enterPassword(password);
 		clickOnLoginButton();
-		if (username.equals("performance_glitch_user")) {
-			try {
-				Thread.sleep(20000);
-			}
-			catch (InterruptedException e) {
-				throw new RuntimeException(e);
-			}
-		}
+	}
+
+	public String getLockedUserErrorMessage() {
+		return lockedUserErrorMessage.getText();
+	}
+
+	public String getInvalidUsernameErrorMessage() {
+		return invalidUserNameErrorMessage.getText();
+	}
+
+	public String getInvalidPasswordErrorMessage() {
+		return invalidPasswordErrorMessage.getText();
 	}
 
 }

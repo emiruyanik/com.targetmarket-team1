@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 public class LoginProcessTest extends Hooks {
 
 	@Test(dataProvider = "users")
-	public void testLoginProcess(String username, String welcomeText) {
+	public void testLoginProcessWithValidCredentials(String username, String welcomeText) {
 		// 1-Go to https://test.inar-academy.com/target-market.
 		pages.getHomePage().clickOnTargetMarketLink();
 
@@ -28,11 +28,52 @@ public class LoginProcessTest extends Hooks {
 
 	}
 
+	@Test
+	public void testLoginProcessWithLockedUsername() {
+		// 1-Go to https://test.inar-academy.com/target-market.
+		pages.getHomePage().clickOnTargetMarketLink();
+
+		// Enter LockedUsername
+		pages.getTargetMarketLoginPage().login("locked_out_user", "secret_password");
+
+		// Verify that 'Your account is locked.' error message is displayed
+		String expectedMessage = "Your account is locked.";
+		String actualMessage = pages.getTargetMarketLoginPage().getLockedUserErrorMessage();
+		Assert.assertEquals(expectedMessage, actualMessage, "Wrong Error message!");
+	}
+
+	@Test(dataProvider = "invalidCredentials")
+	public void testLoginProcessWithInvalidCredentials(String userName, String password, String userNameErrorMessage,
+			String passwordErrorMessage) {
+
+		// 1-Go to https://test.inar-academy.com/target-market.
+		pages.getHomePage().clickOnTargetMarketLink();
+
+		// 2-Login with invalid credentials
+		pages.getTargetMarketLoginPage().login(userName, password);
+
+		// 3-Verify that invalid username and invalid password error messages are
+		// displayed
+		softAssert.assertEquals(userNameErrorMessage, pages.getTargetMarketLoginPage().getInvalidUsernameErrorMessage(),
+				"Wrong message!");
+		softAssert.assertEquals(passwordErrorMessage, pages.getTargetMarketLoginPage().getInvalidPasswordErrorMessage(),
+				"Wrong message!");
+
+		softAssert.assertAll();
+	}
+
 	@DataProvider(name = "users")
 	public Object[][] users() {
 		return new Object[][] { { "standard_user", "Welcome to the Target Market, standard_user!" },
 				{ "problem_user", "Welcome to the Target Market, problem_user!" },
 				{ "performance_glitch_user", "Welcome to the Target Market, performance_glitch_user!" } };
+	}
+
+	@DataProvider(name = "invalidCredentials")
+	public Object[][] invalidCredentials() {
+		return new Object[][] { { "standard_user", "wrong_password", "Invalid username", "Invalid password" },
+				{ "wrong_username", "secret_password", "Invalid username", "Invalid password" },
+				{ "wrong_username", "wrong_password", "Invalid username", "Invalid password" } };
 	}
 
 }

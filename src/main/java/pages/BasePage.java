@@ -14,11 +14,11 @@ public abstract class BasePage {
 
 	public Actions actions = new Actions(driver);
 
-	protected WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+	protected WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
 	public BasePage() {
 		PageFactory.initElements(driver, this);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 
 }
