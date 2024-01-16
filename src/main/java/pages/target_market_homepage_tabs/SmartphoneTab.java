@@ -12,15 +12,15 @@ public class SmartphoneTab extends TargetMarketHomePage {
     @FindBy(css = "strong.text-danger>i")
     private List<WebElement> smartPhonesPrices;
     @FindBy(css = ".btn-danger")
-    private List<WebElement> addToCartTags;
+    private List<WebElement> addToCartButton;
 
     public void placeOrder(String phoneName) {
         List<String> titles = smartPhoneTitles.stream().map(WebElement::getText).toList();
-        actions.moveToElement(addToCartTags.get(titles.indexOf(phoneName)));
+        actions.moveToElement(addToCartButton.get(titles.indexOf(phoneName)));
         try {
-            addToCartTags.get(titles.indexOf(phoneName)).click();
+            addToCartButton.get(titles.indexOf(phoneName)).click();
         } catch (Exception ex) {
-            addToCartTags.get(titles.indexOf(phoneName)).click();
+            addToCartButton.get(titles.indexOf(phoneName)).click();
         }
 
     }
