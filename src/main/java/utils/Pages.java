@@ -4,6 +4,7 @@ import pages.HomePage;
 import pages.TargetMarketHomePage;
 import pages.TargetMarketLoginPage;
 import pages.target_market_homepage_tabs.FurnitureTab;
+import pages.target_market_homepage_tabs.HomeDecorationTab;
 import pages.target_market_homepage_tabs.SmartphoneTab;
 
 public class Pages {
@@ -22,6 +23,10 @@ public class Pages {
 
     public SmartphoneTab getSmartphoneTab() {
         return new SmartphoneTab();
+    }
+
+    public HomeDecorationTab getHomeDecorationTab(){
+        return new HomeDecorationTab();
     }
 
     public FurnitureTab getFurnitureTab(){return new FurnitureTab();}
