@@ -15,7 +15,7 @@ public class HomeDecorationTests extends Hooks {
         //Navigate to target market page
         pages.getHomePage().clickOnTargetMarketLink();
 
-        //Login with valid credentialse that are username "standard_user and password "secret_password"
+        //Login with valid credentials that are username "standard_user and password "secret_password"
         pages.getTargetMarketLoginPage().login("standard_user", "secret_password");
 
         //Click on the "Home Decoration" tab on Target Market Home Page
@@ -42,12 +42,10 @@ public class HomeDecorationTests extends Hooks {
     @Test(priority = 3)
     public void testAreSelectedProductsInTheCart(){
         List<String> products = new ArrayList<>();
-        products.add("Key Holder");
-        products.add("Handcraft Chinese style");
 
         //Click on add to cart button for the product you want
-        pages.getHomeDecorationTab().placeOrder("Key Holder");
-        pages.getHomeDecorationTab().placeOrder("Handcraft Chinese style");
+        products.add(pages.getHomeDecorationTab().placeOrder("Key Holder"));
+        products.add(pages.getHomeDecorationTab().placeOrder("Handcraft Chinese style"));
 
         //Click on cart button
         pages.getHomeDecorationTab().clickOnCartButton();

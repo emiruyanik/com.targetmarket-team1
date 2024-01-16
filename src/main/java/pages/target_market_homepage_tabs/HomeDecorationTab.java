@@ -13,7 +13,7 @@ public class HomeDecorationTab extends TargetMarketHomePage {
     @FindBy(css = ".btn-danger")
     protected List<WebElement> addToCartButtons;
 
-    public void placeOrder(String productName){
+    public String placeOrder(String productName){
         List<String> titles = homeDecorationTitles.stream().map(WebElement::getText).toList();
         actions.moveToElement(addToCartButtons.get(titles.indexOf(productName)));
         try{
@@ -21,6 +21,8 @@ public class HomeDecorationTab extends TargetMarketHomePage {
         }catch (Exception ex){
             addToCartButtons.get(titles.indexOf(productName)).click();
         }
+
+        return productName;
     }
 
     public Object[] getPricesOfProductsInHomeDecoration(){
