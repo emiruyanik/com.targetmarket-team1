@@ -1,10 +1,12 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import utils.BrowserUtils;
+import utils.DriverManager;
 
 import java.util.List;
 
@@ -46,6 +48,7 @@ public class TargetMarketHomePage extends BasePage {
     public void selectSortType(String sortType) {
         Select select = new Select(sortTypeSelector);
         select.selectByVisibleText(sortType);
+
     }
 
     // alternative method for selectCategoryTab
@@ -79,5 +82,7 @@ public class TargetMarketHomePage extends BasePage {
         return categoryShowText.getText();
 
     }
+
+
 
 }
