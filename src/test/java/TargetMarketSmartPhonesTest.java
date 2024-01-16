@@ -1,9 +1,11 @@
 import base_test.Hooks;
+import org.openqa.selenium.JavascriptExecutor;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.BrowserUtils;
+import utils.DriverManager;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class TargetMarketSmartPhonesTest extends Hooks {
     @Test(priority = 0)
@@ -23,6 +25,41 @@ public class TargetMarketSmartPhonesTest extends Hooks {
     }
 
     @Test(priority = 1)
+    void isSortableFromSmallToBigPrices() {
+        BrowserUtils.wait(2);
+        pages.getTargetMarketHomePage().selectSortType("Lowest Price");
+        boolean isSortable = pages.getSmartphoneTab().isSortedFromSmallToBigPrice();
+        Assert.assertTrue(isSortable, "These prices not sortable from small to big!");
+
+    }
+
+    @Test(priority = 1)
+    void isSortableFromBigToSmallPrices() {
+        BrowserUtils.wait(2);
+        pages.getTargetMarketHomePage().selectSortType("Highest Price");
+        boolean isSortable = pages.getSmartphoneTab().isSortedFromBigToSmallPrice();
+        Assert.assertTrue(isSortable, "These prices not sortable from big to small!");
+    }
+
+    @Test(priority = 1)
+    void isSortableFromAToZTitles() {
+        BrowserUtils.wait(2);
+        Object[] list = pages.getSmartphoneTab().getStringOfTitles();
+        Arrays.sort(list);
+        pages.getTargetMarketHomePage().selectSortType("A-Z");
+        Assert.assertEquals(list,pages.getSmartphoneTab().getStringOfTitles(), "These titles not sortable from A to Z!");
+    }
+
+    @Test(priority = 1)
+    void isSortableFromZToATitles() {
+        BrowserUtils.wait(2);
+        Object[] list = pages.getSmartphoneTab().getStringOfTitles();
+        Arrays.sort((String[])list, Comparator.reverseOrder());
+        pages.getTargetMarketHomePage().selectSortType("Z-A");
+        Assert.assertEquals(list,pages.getSmartphoneTab().getStringOfTitles(), "These titles not sortable from Z to A!");
+    }
+
+    @Test(priority = 2)
     void isProductInCartPageTest() {
         //add products to the cart
         List<String> list = new ArrayList<>();
@@ -33,8 +70,11 @@ public class TargetMarketSmartPhonesTest extends Hooks {
 
         //click on cart button
         pages.getSmartphoneTab().clickOnCartButton();
+        BrowserUtils.wait(1);
 
         //Verify added products on the card page
         softAssert.assertTrue(list.equals(pages.getSmartphoneTab().getProductsNamesOnCart()));
     }
+
+
 }
