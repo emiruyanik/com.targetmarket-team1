@@ -9,6 +9,7 @@ import utils.BrowserUtils;
 import utils.DriverManager;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SmartphoneTab extends TargetMarketHomePage {
@@ -32,7 +33,6 @@ public class SmartphoneTab extends TargetMarketHomePage {
 
 
     public boolean isSortedFromSmallToBigPrice() {
-
         for (int i = 0; i < getIntegerOfPrices().size()-1; i++) {
             if (getIntegerOfPrices().get(i) > getIntegerOfPrices().get(i + 1)) {
                 return false;
@@ -43,7 +43,6 @@ public class SmartphoneTab extends TargetMarketHomePage {
     }
 
     public boolean isSortedFromBigToSmallPrice() {
-
         for (int i = 0; i < getIntegerOfPrices().size()-1; i++) {
             if (getIntegerOfPrices().get(i) < getIntegerOfPrices().get(i + 1)) {
                 return false;
@@ -57,8 +56,8 @@ public class SmartphoneTab extends TargetMarketHomePage {
         return smartPhonesPrices.stream().map(price -> Integer.parseInt(price.getText().substring(1))).toList();
     }
 
-    public Object[] getStringOfTitles(){
-        return  smartPhoneTitles.stream().map(title -> title.getText().toLowerCase()).toArray();
+    public List<String> getStringOfTitles(){
+        return smartPhoneTitles.stream().map(title -> title.getText().toLowerCase()).toList();
     }
 
 
