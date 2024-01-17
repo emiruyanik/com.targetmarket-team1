@@ -30,12 +30,12 @@ public class HomeDecorationTab extends TargetMarketHomePage {
 		return productName;
 	}
 
-	public Object[] getPricesOfProductsInHomeDecoration() {
-		return homeDecorationPrices.stream().map(price -> Integer.parseInt(price.getText().substring(1))).toArray();
+	public List<Integer> getPricesOfProductsInHomeDecoration() {
+		return homeDecorationPrices.stream().map(price -> Integer.parseInt(price.getText().substring(1))).toList();
 	}
 
-	public Object[] getTitlesOfProductsInHomeDecoration() {
-		return homeDecorationPrices.stream().map(WebElement::getText).toArray();
+	public List<String> getTitlesOfProductsInHomeDecoration() {
+		return homeDecorationPrices.stream().map(WebElement::getText).toList();
 	}
 
 }

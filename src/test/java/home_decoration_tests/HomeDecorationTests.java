@@ -4,9 +4,8 @@ import base_test.Hooks;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.BrowserUtils;
-
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class HomeDecorationTests extends Hooks {
@@ -30,8 +29,8 @@ public class HomeDecorationTests extends Hooks {
 	@Test(priority = 2)
 	public void testTheProductsAreSortedCorrectly() {
 		// Sort prices from smallest to largest
-		Object[] sortedPrice = pages.getHomeDecorationTab().getPricesOfProductsInHomeDecoration();
-		Arrays.sort(sortedPrice);
+		List<Integer> sortedPrice = new ArrayList<>(pages.getHomeDecorationTab().getPricesOfProductsInHomeDecoration());
+		Collections.sort(sortedPrice);
 
 		// Select "Lowest Price" from "Sort By";
 		BrowserUtils.scrollDownWithPageDown();
