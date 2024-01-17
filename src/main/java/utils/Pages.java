@@ -46,4 +46,8 @@ public class Pages {
     public WomenDressesTab getWomenDressesTab() {
         return new WomenDressesTab();
     }
+
+    public WomenShoesTab getWomenShoesTab(){
+        return new WomenShoesTab();
+    }
 }
