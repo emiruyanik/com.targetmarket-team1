@@ -19,6 +19,10 @@ public class Pages {
         return new TargetMarketHomePage();
     }
 
+    public AllTab getAllTab(){
+        return new AllTab();
+    }
+
     public SmartphoneTab getSmartphoneTab() {
         return new SmartphoneTab();
     }
