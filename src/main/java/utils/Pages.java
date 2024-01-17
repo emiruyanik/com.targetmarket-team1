@@ -55,4 +55,8 @@ public class Pages {
     public TargetMarketCheckoutPage getTargetMarketCheckoutPage() {
         return new TargetMarketCheckoutPage();
     }
+
+    public LaptopsTab getLaptopsTab(){
+        return new LaptopsTab();
+    }
 }
