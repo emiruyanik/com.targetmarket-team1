@@ -3,10 +3,7 @@ package utils;
 import pages.HomePage;
 import pages.TargetMarketHomePage;
 import pages.TargetMarketLoginPage;
-import pages.target_market_homepage_tabs.FurnitureTab;
-import pages.target_market_homepage_tabs.HomeDecorationTab;
-import pages.target_market_homepage_tabs.SkincareTab;
-import pages.target_market_homepage_tabs.SmartphoneTab;
+import pages.target_market_homepage_tabs.*;
 
 public class Pages {
 
@@ -26,11 +23,20 @@ public class Pages {
         return new SmartphoneTab();
     }
 
-    public HomeDecorationTab getHomeDecorationTab(){
+    public HomeDecorationTab getHomeDecorationTab() {
         return new HomeDecorationTab();
     }
 
-    public FurnitureTab getFurnitureTab(){return new FurnitureTab();}
-    public SkincareTab getSkincareTab(){return new SkincareTab();}
+    public FurnitureTab getFurnitureTab() {
+        return new FurnitureTab();
+    }
+
+    public SkincareTab getSkincareTab() {
+        return new SkincareTab();
+    }
+
+    public GroceriesTab getGroceriesTab() {
+        return new GroceriesTab();
+    }
 
 }

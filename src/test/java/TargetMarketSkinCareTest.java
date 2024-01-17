@@ -10,7 +10,7 @@ import java.util.List;
 
 public class TargetMarketSkinCareTest extends Hooks {
     @Test(priority = 0)
-    void testSmartPhone() {
+    void testSkincare() {
         //navigate to target market link
         pages.getHomePage().clickOnTargetMarketLink();
 
@@ -20,7 +20,7 @@ public class TargetMarketSkinCareTest extends Hooks {
         //click on skincare
         pages.getTargetMarketHomePage().selectCategoryTab("Skincare");
 
-        //verify that smartphones page show up properly
+        //verify that skincare page show up properly
         softAssert.assertEquals("Skincare", pages.getTargetMarketHomePage().getCategoryText());
 
     }
