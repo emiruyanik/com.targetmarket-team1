@@ -1,10 +1,13 @@
 package pages.target_market_homepage_tabs;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.TargetMarketHomePage;
+import utils.BrowserUtils;
 
 import java.util.List;
+import java.util.Locale;
 
 public class HomeDecorationTab extends TargetMarketHomePage {
 
@@ -35,7 +38,7 @@ public class HomeDecorationTab extends TargetMarketHomePage {
 	}
 
 	public List<String> getTitlesOfProductsInHomeDecoration() {
-		return homeDecorationPrices.stream().map(WebElement::getText).toList();
+		return homeDecorationTitles.stream().map(price -> price.getText().toLowerCase(Locale.ROOT)).toList();
 	}
 
 }

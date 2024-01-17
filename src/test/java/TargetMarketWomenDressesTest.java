@@ -17,10 +17,10 @@ public class TargetMarketWomenDressesTest extends Hooks {
         // enter login page
         pages.getTargetMarketLoginPage().login("standard_user", "secret_password");
 
-        // click on skincare
+        // click on "Womens Dresses"
         pages.getTargetMarketHomePage().selectCategoryTab("Womens Dresses");
 
-        // verify that skincare page show up properly
+        // verify that women dresses page show up properly
         softAssert.assertEquals("Womens Dresses", pages.getTargetMarketHomePage().getCategoryText());
 
     }

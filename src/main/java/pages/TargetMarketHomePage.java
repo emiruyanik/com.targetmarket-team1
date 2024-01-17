@@ -38,6 +38,9 @@ public class TargetMarketHomePage extends BasePage {
 	@FindBy(xpath = "//button[text()='Close']")
 	private WebElement closeButton;
 
+	@FindBy(id = "splide02-list")
+	private WebElement splideList;
+
 	public TargetMarketHomePage() {
 		super();
 	}
@@ -77,8 +80,14 @@ public class TargetMarketHomePage extends BasePage {
 	// }
 	// }
 	public void selectCategoryTab(String nameOfCategory) {
+		wait.until(ExpectedConditions.visibilityOf(welcomeMessage));
+		if(nameOfCategory.equalsIgnoreCase("Womens Shoes") || nameOfCategory.equalsIgnoreCase("Womens Dresses")){
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("document.querySelector('#splide02-list').setAttribute('style', 'transform: translateX(-285px)');");
+		}
 		List<String> namesOfCat = categoriesTabs.stream().map(WebElement::getText).toList();
 		actions.moveToElement(categoriesTabs.get(namesOfCat.indexOf(nameOfCategory)));
+		BrowserUtils.wait(1);
 		try {
 			categoriesTabs.get(namesOfCat.indexOf(nameOfCategory)).click();
 		}
