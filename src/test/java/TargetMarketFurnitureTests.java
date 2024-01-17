@@ -1,8 +1,6 @@
 import base_test.Hooks;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.asserts.Assertion;
-import utils.Pages;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,8 +38,8 @@ public class TargetMarketFurnitureTests extends Hooks {
     @Test(priority = 2)
     void testDisplayedOnTheCart(){
         // 6- Click on cart of Mornadi Velvet Bed and Sofa for Coffe Cafe.
-       productsName.add(pages.getFurnitureTab().PlaceOrder("Mornadi Velvet Bed"));
-       productsName.add(pages.getFurnitureTab().PlaceOrder("Sofa for Coffe Cafe"));
+       productsName.add(pages.getFurnitureTab().placeOrder("Mornadi Velvet Bed"));
+       productsName.add(pages.getFurnitureTab().placeOrder("Sofa for Coffe Cafe"));
 
         // 7- Click on cart button.
         pages.getFurnitureTab().clickOnCartButton();

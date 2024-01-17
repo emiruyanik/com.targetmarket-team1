@@ -17,7 +17,7 @@ public class FurnitureTab extends TargetMarketHomePage {
     @FindBy(css = "button.btn-danger")
     private List<WebElement> addToCartButtons;
 
-    public String PlaceOrder(String furnitureName){
+    public String placeOrder(String furnitureName){
         List<String> titles = furnitureTitles.stream().map(WebElement::getText).toList();
         actions.moveToElement(addToCartButtons.get(titles.indexOf(furnitureName)));
         try {
