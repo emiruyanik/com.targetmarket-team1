@@ -27,15 +27,6 @@ public class GroceriesTab extends TargetMarketHomePage {
         }
     }
 
-    public void placeOrder1(String groceryName) {
-        List<String> groceries = groceriesTitles.stream().map(WebElement::getText).toList();
-        actions.moveToElement(addToCartButton.get(groceries.indexOf(groceryName)));
-        try {
-            addToCartButton.get(groceries.indexOf(groceryName)).click();
-        } catch (Exception ex) {
-            addToCartButton.get(groceries.indexOf(groceryName)).click();
-        }
-    }
 
     public boolean isSortedFromSmallToBigPrice() {
         for (int i = 0; i < getIntegerOfPrices().size() - 1; i++) {
@@ -60,14 +51,9 @@ public class GroceriesTab extends TargetMarketHomePage {
     }
 
     public List<String> getStringOfTitles() {
-        deneme();
         return groceriesTitles.stream().map(title -> title.getText().toLowerCase()).toList();
 
     }
 
-    public void deneme() {
-        System.out.println("gitbash bize yemuk yaptı");
-    }
-
-
+   
 }
