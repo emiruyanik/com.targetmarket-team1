@@ -12,7 +12,7 @@ public class Hooks {
 
 	public SoftAssert softAssert = new SoftAssert();
 
-//	@Parameters("browser")
+	// @Parameters("browser")
 	@BeforeClass
 	public void setUpTestEnvironment() {
 		DriverManager.getWebDriver();

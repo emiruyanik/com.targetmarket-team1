@@ -19,7 +19,7 @@ public class Pages {
         return new TargetMarketHomePage();
     }
 
-    public AllTab getAllTab(){
+    public AllTab getAllTab() {
         return new AllTab();
     }
 
@@ -43,4 +43,7 @@ public class Pages {
         return new GroceriesTab();
     }
 
+    public WomenDressesTab getWomenDressesTab() {
+        return new WomenDressesTab();
+    }
 }

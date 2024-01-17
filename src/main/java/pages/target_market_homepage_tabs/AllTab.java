@@ -8,71 +8,76 @@ import java.util.List;
 import java.util.Locale;
 
 public class AllTab extends TargetMarketHomePage {
-    @FindBy(css = ".card-title")
-    private List<WebElement> allProductsTitles;
-    @FindBy(css = "strong.text-danger>i")
-    private List<WebElement> allProductsPrices;
-    @FindBy(css = ".btn-danger")
-    private List<WebElement> addToCartButtons;
 
-    @FindBy(css = "button.btn-sm")
-    private List<WebElement> changingCountButtons;
+	@FindBy(css = ".card-title")
+	private List<WebElement> allProductsTitles;
 
-    @FindBy(xpath = "//button[@class='fs-4 ms-2 btn btn-outline-dark btn-sm']/../span")
-    private WebElement countOfProductOnCart;
+	@FindBy(css = "strong.text-danger>i")
+	private List<WebElement> allProductsPrices;
 
-    @FindBy(css = "p.mb-0.fs-2")
-    private WebElement totalPriceOnCart;
+	@FindBy(css = ".btn-danger")
+	private List<WebElement> addToCartButtons;
 
-    public void placeOrder(String phoneName) {
-        List<String> titles = allProductsTitles.stream().map(WebElement::getText).toList();
-        actions.moveToElement(addToCartButtons.get(titles.indexOf(phoneName)));
-        try {
-            addToCartButtons.get(titles.indexOf(phoneName)).click();
-        } catch (Exception ex) {
-            addToCartButtons.get(titles.indexOf(phoneName)).click();
-        }
-    }
+	@FindBy(css = "button.btn-sm")
+	private List<WebElement> changingCountButtons;
 
+	@FindBy(xpath = "//button[@class='fs-4 ms-2 btn btn-outline-dark btn-sm']/../span")
+	private WebElement countOfProductOnCart;
 
-    public boolean isSortedFromSmallToBigPrice() {
-        for (int i = 0; i < getIntegerOfPrices().size()-1; i++) {
-            if (getIntegerOfPrices().get(i) > getIntegerOfPrices().get(i + 1)) {
-                return false;
-            }
+	@FindBy(css = "p.mb-0.fs-2")
+	private WebElement totalPriceOnCart;
 
-        }
-        return true;
-    }
+	public void placeOrder(String phoneName) {
+		List<String> titles = allProductsTitles.stream().map(WebElement::getText).toList();
+		actions.moveToElement(addToCartButtons.get(titles.indexOf(phoneName)));
+		try {
+			addToCartButtons.get(titles.indexOf(phoneName)).click();
+		}
+		catch (Exception ex) {
+			addToCartButtons.get(titles.indexOf(phoneName)).click();
+		}
+	}
 
-    public boolean isSortedFromBigToSmallPrice() {
-        for (int i = 0; i < getIntegerOfPrices().size()-1; i++) {
-            if (getIntegerOfPrices().get(i) < getIntegerOfPrices().get(i + 1)) {
-                return false;
-            }
+	public boolean isSortedFromSmallToBigPrice() {
+		for (int i = 0; i < getIntegerOfPrices().size() - 1; i++) {
+			if (getIntegerOfPrices().get(i) > getIntegerOfPrices().get(i + 1)) {
+				return false;
+			}
 
-        }
-        return true;
-    }
+		}
+		return true;
+	}
 
-    public List<Integer> getIntegerOfPrices() {
-        return allProductsPrices.stream().map(price -> Integer.parseInt(price.getText().substring(1))).toList();
-    }
+	public boolean isSortedFromBigToSmallPrice() {
+		for (int i = 0; i < getIntegerOfPrices().size() - 1; i++) {
+			if (getIntegerOfPrices().get(i) < getIntegerOfPrices().get(i + 1)) {
+				return false;
+			}
 
-    public List<String> getStringOfTitles(){
-        return allProductsTitles.stream().map(title -> title.getText().toLowerCase(Locale.ROOT)).toList();
-    }
+		}
+		return true;
+	}
 
-    public void clickOnAmountChangerButtons(String productName, String changer){
-        List<String> list = changingCountButtons.stream().map(WebElement::getText).toList();
-        changingCountButtons.get((list.indexOf(changer) % 2) + 2 * getProductsNamesOnCart().indexOf(productName)).click();
-    }
+	public List<Integer> getIntegerOfPrices() {
+		return allProductsPrices.stream().map(price -> Integer.parseInt(price.getText().substring(1))).toList();
+	}
 
-    public int getCountOfProductOnCart(){
-        return Integer.parseInt(countOfProductOnCart.getText());
-    }
+	public List<String> getStringOfTitles() {
+		return allProductsTitles.stream().map(title -> title.getText().toLowerCase(Locale.ROOT)).toList();
+	}
 
-    public String getTotalPriceOnCart(){
-        return totalPriceOnCart.getText();
-    }
+	public void clickOnAmountChangerButtons(String productName, String changer) {
+		List<String> list = changingCountButtons.stream().map(WebElement::getText).toList();
+		changingCountButtons.get((list.indexOf(changer) % 2) + 2 * getProductsNamesOnCart().indexOf(productName))
+			.click();
+	}
+
+	public int getCountOfProductOnCart() {
+		return Integer.parseInt(countOfProductOnCart.getText());
+	}
+
+	public String getTotalPriceOnCart() {
+		return totalPriceOnCart.getText();
+	}
+
 }

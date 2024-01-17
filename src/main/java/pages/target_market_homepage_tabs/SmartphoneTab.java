@@ -13,52 +13,53 @@ import java.util.Collections;
 import java.util.List;
 
 public class SmartphoneTab extends TargetMarketHomePage {
-    @FindBy(css = ".card-title")
-    private List<WebElement> smartPhoneTitles;
-    @FindBy(css = "strong.text-danger>i")
-    private List<WebElement> smartPhonesPrices;
-    @FindBy(css = ".btn-danger")
-    private List<WebElement> addToCartButton;
 
+	@FindBy(css = ".card-title")
+	private List<WebElement> smartPhoneTitles;
 
-    public void placeOrder(String phoneName) {
-        List<String> titles = smartPhoneTitles.stream().map(WebElement::getText).toList();
-        actions.moveToElement(addToCartButton.get(titles.indexOf(phoneName)));
-        try {
-            addToCartButton.get(titles.indexOf(phoneName)).click();
-        } catch (Exception ex) {
-            addToCartButton.get(titles.indexOf(phoneName)).click();
-        }
-    }
+	@FindBy(css = "strong.text-danger>i")
+	private List<WebElement> smartPhonesPrices;
 
+	@FindBy(css = ".btn-danger")
+	private List<WebElement> addToCartButton;
 
-    public boolean isSortedFromSmallToBigPrice() {
-        for (int i = 0; i < getIntegerOfPrices().size()-1; i++) {
-            if (getIntegerOfPrices().get(i) > getIntegerOfPrices().get(i + 1)) {
-                return false;
-            }
+	public void placeOrder(String phoneName) {
+		List<String> titles = smartPhoneTitles.stream().map(WebElement::getText).toList();
+		actions.moveToElement(addToCartButton.get(titles.indexOf(phoneName)));
+		try {
+			addToCartButton.get(titles.indexOf(phoneName)).click();
+		}
+		catch (Exception ex) {
+			addToCartButton.get(titles.indexOf(phoneName)).click();
+		}
+	}
 
-        }
-        return true;
-    }
+	public boolean isSortedFromSmallToBigPrice() {
+		for (int i = 0; i < getIntegerOfPrices().size() - 1; i++) {
+			if (getIntegerOfPrices().get(i) > getIntegerOfPrices().get(i + 1)) {
+				return false;
+			}
 
-    public boolean isSortedFromBigToSmallPrice() {
-        for (int i = 0; i < getIntegerOfPrices().size()-1; i++) {
-            if (getIntegerOfPrices().get(i) < getIntegerOfPrices().get(i + 1)) {
-                return false;
-            }
+		}
+		return true;
+	}
 
-        }
-        return true;
-    }
+	public boolean isSortedFromBigToSmallPrice() {
+		for (int i = 0; i < getIntegerOfPrices().size() - 1; i++) {
+			if (getIntegerOfPrices().get(i) < getIntegerOfPrices().get(i + 1)) {
+				return false;
+			}
 
-    public List<Integer> getIntegerOfPrices() {
-        return smartPhonesPrices.stream().map(price -> Integer.parseInt(price.getText().substring(1))).toList();
-    }
+		}
+		return true;
+	}
 
-    public List<String> getStringOfTitles(){
-        return smartPhoneTitles.stream().map(title -> title.getText().toLowerCase()).toList();
-    }
+	public List<Integer> getIntegerOfPrices() {
+		return smartPhonesPrices.stream().map(price -> Integer.parseInt(price.getText().substring(1))).toList();
+	}
 
+	public List<String> getStringOfTitles() {
+		return smartPhoneTitles.stream().map(title -> title.getText().toLowerCase()).toList();
+	}
 
 }

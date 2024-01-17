@@ -7,30 +7,35 @@ import pages.TargetMarketHomePage;
 import java.util.List;
 
 public class HomeDecorationTab extends TargetMarketHomePage {
-    @FindBy(css = ".card-title")
-    protected List<WebElement> homeDecorationTitles;
-    @FindBy(css = "strong.text-danger>i")
-    protected List<WebElement> homeDecorationPrices;
-    @FindBy(css = ".btn-danger")
-    protected List<WebElement> addToCartButtons;
 
-    public String placeOrder(String productName){
-        List<String> titles = homeDecorationTitles.stream().map(WebElement::getText).toList();
-        actions.moveToElement(addToCartButtons.get(titles.indexOf(productName)));
-        try{
-            addToCartButtons.get(titles.indexOf(productName)).click();
-        }catch (Exception ex){
-            addToCartButtons.get(titles.indexOf(productName)).click();
-        }
+	@FindBy(css = ".card-title")
+	protected List<WebElement> homeDecorationTitles;
 
-        return productName;
-    }
+	@FindBy(css = "strong.text-danger>i")
+	protected List<WebElement> homeDecorationPrices;
 
-    public Object[] getPricesOfProductsInHomeDecoration(){
-        return homeDecorationPrices.stream().map(price -> Integer.parseInt(price.getText().substring(1))).toArray();
-    }
+	@FindBy(css = ".btn-danger")
+	protected List<WebElement> addToCartButtons;
 
-    public Object[] getTitlesOfProductsInHomeDecoration(){
-        return homeDecorationPrices.stream().map(WebElement::getText).toArray();
-    }
+	public String placeOrder(String productName) {
+		List<String> titles = homeDecorationTitles.stream().map(WebElement::getText).toList();
+		actions.moveToElement(addToCartButtons.get(titles.indexOf(productName)));
+		try {
+			addToCartButtons.get(titles.indexOf(productName)).click();
+		}
+		catch (Exception ex) {
+			addToCartButtons.get(titles.indexOf(productName)).click();
+		}
+
+		return productName;
+	}
+
+	public Object[] getPricesOfProductsInHomeDecoration() {
+		return homeDecorationPrices.stream().map(price -> Integer.parseInt(price.getText().substring(1))).toArray();
+	}
+
+	public Object[] getTitlesOfProductsInHomeDecoration() {
+		return homeDecorationPrices.stream().map(WebElement::getText).toArray();
+	}
+
 }
