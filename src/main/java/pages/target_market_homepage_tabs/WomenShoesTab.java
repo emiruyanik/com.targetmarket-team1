@@ -16,16 +16,45 @@ public class WomenShoesTab extends TargetMarketHomePage {
     @FindBy(css = ".text-danger > i")
     private List<WebElement> womenShoesPrices;
 
-    public String PlaceOrder(String womenShoesNames) {
+    public String placeOrder(String womenShoesNames) {
         List<String> shoesNames = womenShoesTitles.stream().map(WebElement::getText).toList();
         actions.moveToElement(addTheChartButtons.get(shoesNames.indexOf(womenShoesNames)));
 
         try {
-            addTheChartButtons.get(shoesNames.indexOf(womenShoesNames));
+            addTheChartButtons.get(shoesNames.indexOf(womenShoesNames)).click();
         } catch (Exception ex) {
-            addTheChartButtons.get(shoesNames.indexOf(womenShoesNames));
+            addTheChartButtons.get(shoesNames.indexOf(womenShoesNames)).click();
         }
 
         return womenShoesNames;
     }
+
+    public boolean isSortedFromSmallToBigPrice() {
+        for (int i = 0; i < getIntegerOfPrices().size() - 1; i++) {
+            if (getIntegerOfPrices().get(i) > getIntegerOfPrices().get(i + 1)) {
+                return false;
+            }
+
+        }
+        return true;
+    }
+
+    public boolean isSortedFromBigToSmallPrice() {
+        for (int i = 0; i < getIntegerOfPrices().size() - 1; i++) {
+            if (getIntegerOfPrices().get(i) < getIntegerOfPrices().get(i + 1)) {
+                return false;
+            }
+
+        }
+        return true;
+    }
+
+    public List<Integer> getIntegerOfPrices() {
+        return womenShoesPrices.stream().map(price -> Integer.parseInt(price.getText().substring(1))).toList();
+    }
+
+    public List<String> getStringOfTitles() {
+        return womenShoesPrices.stream().map(title -> title.getText().toLowerCase()).toList();
+    }
+
 }
