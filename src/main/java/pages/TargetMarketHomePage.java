@@ -32,6 +32,11 @@ public class TargetMarketHomePage extends BasePage {
 
 	@FindBy(tagName = "h3")
 	private List<WebElement> productsInCart;
+	@FindBy(xpath = "//button[text()='Go to Checkout']")
+	private WebElement goToCheckoutButton;
+
+	@FindBy(xpath = "//button[text()='Close']")
+	private WebElement closeButton;
 
 	public TargetMarketHomePage() {
 		super();
@@ -87,6 +92,13 @@ public class TargetMarketHomePage extends BasePage {
 		wait.until(ExpectedConditions.visibilityOf(categoryShowText));
 		return categoryShowText.getText();
 
+	}
+	public void clickGoToCheckoutButton() {
+		goToCheckoutButton.click();
+	}
+
+	public void clickToCloseButton() {
+		closeButton.click();
 	}
 
 }

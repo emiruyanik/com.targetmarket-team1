@@ -1,6 +1,7 @@
 package utils;
 
 import pages.HomePage;
+import pages.TargetMarketCheckoutPage;
 import pages.TargetMarketHomePage;
 import pages.TargetMarketLoginPage;
 import pages.target_market_homepage_tabs.*;
@@ -47,7 +48,11 @@ public class Pages {
         return new WomenDressesTab();
     }
 
-    public WomenShoesTab getWomenShoesTab(){
+    public WomenShoesTab getWomenShoesTab() {
         return new WomenShoesTab();
+    }
+
+    public TargetMarketCheckoutPage getTargetMarketCheckoutPage() {
+        return new TargetMarketCheckoutPage();
     }
 }
