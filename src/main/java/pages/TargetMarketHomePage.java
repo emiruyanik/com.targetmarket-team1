@@ -32,6 +32,7 @@ public class TargetMarketHomePage extends BasePage {
 
 	@FindBy(tagName = "h3")
 	private List<WebElement> productsInCart;
+
 	@FindBy(xpath = "//button[text()='Go to Checkout']")
 	private WebElement goToCheckoutButton;
 
@@ -81,9 +82,10 @@ public class TargetMarketHomePage extends BasePage {
 	// }
 	public void selectCategoryTab(String nameOfCategory) {
 		wait.until(ExpectedConditions.visibilityOf(welcomeMessage));
-		if(nameOfCategory.equalsIgnoreCase("Womens Shoes") || nameOfCategory.equalsIgnoreCase("Womens Dresses")){
+		if (nameOfCategory.equalsIgnoreCase("Womens Shoes") || nameOfCategory.equalsIgnoreCase("Womens Dresses")) {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("document.querySelector('#splide02-list').setAttribute('style', 'transform: translateX(-285px)');");
+			js.executeScript(
+					"document.querySelector('#splide02-list').setAttribute('style', 'transform: translateX(-285px)');");
 		}
 		List<String> namesOfCat = categoriesTabs.stream().map(WebElement::getText).toList();
 		actions.moveToElement(categoriesTabs.get(namesOfCat.indexOf(nameOfCategory)));
@@ -102,6 +104,7 @@ public class TargetMarketHomePage extends BasePage {
 		return categoryShowText.getText();
 
 	}
+
 	public void clickGoToCheckoutButton() {
 		goToCheckoutButton.click();
 	}

@@ -7,54 +7,56 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class WomenShoesTab extends TargetMarketHomePage {
-    @FindBy(css = ".card-title")
-    private List<WebElement> womenShoesTitles;
 
-    @FindBy(css = ".btn-danger")
-    private List<WebElement> addTheChartButtons;
+	@FindBy(css = ".card-title")
+	private List<WebElement> womenShoesTitles;
 
-    @FindBy(css = ".text-danger > i")
-    private List<WebElement> womenShoesPrices;
+	@FindBy(css = ".btn-danger")
+	private List<WebElement> addTheChartButtons;
 
-    public String placeOrder(String womenShoesNames) {
-        List<String> shoesNames = womenShoesTitles.stream().map(WebElement::getText).toList();
-        actions.moveToElement(addTheChartButtons.get(shoesNames.indexOf(womenShoesNames)));
+	@FindBy(css = ".text-danger > i")
+	private List<WebElement> womenShoesPrices;
 
-        try {
-            addTheChartButtons.get(shoesNames.indexOf(womenShoesNames)).click();
-        } catch (Exception ex) {
-            addTheChartButtons.get(shoesNames.indexOf(womenShoesNames)).click();
-        }
+	public String placeOrder(String womenShoesNames) {
+		List<String> shoesNames = womenShoesTitles.stream().map(WebElement::getText).toList();
+		actions.moveToElement(addTheChartButtons.get(shoesNames.indexOf(womenShoesNames)));
 
-        return womenShoesNames;
-    }
+		try {
+			addTheChartButtons.get(shoesNames.indexOf(womenShoesNames)).click();
+		}
+		catch (Exception ex) {
+			addTheChartButtons.get(shoesNames.indexOf(womenShoesNames)).click();
+		}
 
-    public boolean isSortedFromSmallToBigPrice() {
-        for (int i = 0; i < getIntegerOfPrices().size() - 1; i++) {
-            if (getIntegerOfPrices().get(i) > getIntegerOfPrices().get(i + 1)) {
-                return false;
-            }
+		return womenShoesNames;
+	}
 
-        }
-        return true;
-    }
+	public boolean isSortedFromSmallToBigPrice() {
+		for (int i = 0; i < getIntegerOfPrices().size() - 1; i++) {
+			if (getIntegerOfPrices().get(i) > getIntegerOfPrices().get(i + 1)) {
+				return false;
+			}
 
-    public boolean isSortedFromBigToSmallPrice() {
-        for (int i = 0; i < getIntegerOfPrices().size() - 1; i++) {
-            if (getIntegerOfPrices().get(i) < getIntegerOfPrices().get(i + 1)) {
-                return false;
-            }
+		}
+		return true;
+	}
 
-        }
-        return true;
-    }
+	public boolean isSortedFromBigToSmallPrice() {
+		for (int i = 0; i < getIntegerOfPrices().size() - 1; i++) {
+			if (getIntegerOfPrices().get(i) < getIntegerOfPrices().get(i + 1)) {
+				return false;
+			}
 
-    public List<Integer> getIntegerOfPrices() {
-        return womenShoesPrices.stream().map(price -> Integer.parseInt(price.getText().substring(1))).toList();
-    }
+		}
+		return true;
+	}
 
-    public List<String> getStringOfTitles() {
-        return womenShoesPrices.stream().map(title -> title.getText().toLowerCase()).toList();
-    }
+	public List<Integer> getIntegerOfPrices() {
+		return womenShoesPrices.stream().map(price -> Integer.parseInt(price.getText().substring(1))).toList();
+	}
+
+	public List<String> getStringOfTitles() {
+		return womenShoesPrices.stream().map(title -> title.getText().toLowerCase()).toList();
+	}
 
 }

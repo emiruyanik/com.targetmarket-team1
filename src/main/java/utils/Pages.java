@@ -8,55 +8,56 @@ import pages.target_market_homepage_tabs.*;
 
 public class Pages {
 
-    public HomePage getHomePage() {
-        return new HomePage();
-    }
+	public HomePage getHomePage() {
+		return new HomePage();
+	}
 
-    public TargetMarketLoginPage getTargetMarketLoginPage() {
-        return new TargetMarketLoginPage();
-    }
+	public TargetMarketLoginPage getTargetMarketLoginPage() {
+		return new TargetMarketLoginPage();
+	}
 
-    public TargetMarketHomePage getTargetMarketHomePage() {
-        return new TargetMarketHomePage();
-    }
+	public TargetMarketHomePage getTargetMarketHomePage() {
+		return new TargetMarketHomePage();
+	}
 
-    public AllTab getAllTab() {
-        return new AllTab();
-    }
+	public AllTab getAllTab() {
+		return new AllTab();
+	}
 
-    public SmartphoneTab getSmartphoneTab() {
-        return new SmartphoneTab();
-    }
+	public SmartphoneTab getSmartphoneTab() {
+		return new SmartphoneTab();
+	}
 
-    public HomeDecorationTab getHomeDecorationTab() {
-        return new HomeDecorationTab();
-    }
+	public HomeDecorationTab getHomeDecorationTab() {
+		return new HomeDecorationTab();
+	}
 
-    public FurnitureTab getFurnitureTab() {
-        return new FurnitureTab();
-    }
+	public FurnitureTab getFurnitureTab() {
+		return new FurnitureTab();
+	}
 
-    public SkincareTab getSkincareTab() {
-        return new SkincareTab();
-    }
+	public SkincareTab getSkincareTab() {
+		return new SkincareTab();
+	}
 
-    public GroceriesTab getGroceriesTab() {
-        return new GroceriesTab();
-    }
+	public GroceriesTab getGroceriesTab() {
+		return new GroceriesTab();
+	}
 
-    public WomenDressesTab getWomenDressesTab() {
-        return new WomenDressesTab();
-    }
+	public WomenDressesTab getWomenDressesTab() {
+		return new WomenDressesTab();
+	}
 
-    public WomenShoesTab getWomenShoesTab() {
-        return new WomenShoesTab();
-    }
+	public WomenShoesTab getWomenShoesTab() {
+		return new WomenShoesTab();
+	}
 
-    public TargetMarketCheckoutPage getTargetMarketCheckoutPage() {
-        return new TargetMarketCheckoutPage();
-    }
+	public TargetMarketCheckoutPage getTargetMarketCheckoutPage() {
+		return new TargetMarketCheckoutPage();
+	}
 
-    public LaptopsTab getLaptopsTab(){
-        return new LaptopsTab();
-    }
+	public LaptopsTab getLaptopsTab() {
+		return new LaptopsTab();
+	}
+
 }

@@ -9,88 +9,91 @@ import java.util.Comparator;
 import java.util.List;
 
 public class TargetMarketLaptopsTest extends Hooks {
-    @Test(priority = 1)
-    public void testThisIsTheHomeDecorationTab() {
-        // Navigate to target market page
-        pages.getHomePage().clickOnTargetMarketLink();
 
-        // Login with valid credentials that are username "standard_user and password "secret_password"
-        pages.getTargetMarketLoginPage().login("standard_user", "secret_password");
+	@Test(priority = 1)
+	public void testThisIsTheHomeDecorationTab() {
+		// Navigate to target market page
+		pages.getHomePage().clickOnTargetMarketLink();
 
-        //Click on the "Laptops" tab on Target Market Home Page
-        pages.getTargetMarketHomePage().selectCategoryTab("Laptops");
+		// Login with valid credentials that are username "standard_user and password
+		// "secret_password"
+		pages.getTargetMarketLoginPage().login("standard_user", "secret_password");
 
-        //Verify that laptops page show up properly
-        Assert.assertEquals("Laptops", pages.getHomeDecorationTab().getCategoryText());
-    }
+		// Click on the "Laptops" tab on Target Market Home Page
+		pages.getTargetMarketHomePage().selectCategoryTab("Laptops");
 
-    // Verify that sort 'Lowest price' functionality
-    @Test(priority = 2)
-    public void testSortedFromSmallestToLargest() {
-        //Sort prices from smallest to largest
-        List<Integer> sortedPrice = new ArrayList<>(pages.getLaptopsTab().getPricesOfProductsInHomeDecoration());
-        Collections.sort(sortedPrice);
+		// Verify that laptops page show up properly
+		Assert.assertEquals("Laptops", pages.getHomeDecorationTab().getCategoryText());
+	}
 
-        //Select "Lowest Price" from "Sort By";
-        BrowserUtils.scrollDownWithPageDown();
-        pages.getLaptopsTab().selectSortType("Lowest Price");
+	// Verify that sort 'Lowest price' functionality
+	@Test(priority = 2)
+	public void testSortedFromSmallestToLargest() {
+		// Sort prices from smallest to largest
+		List<Integer> sortedPrice = new ArrayList<>(pages.getLaptopsTab().getPricesOfProductsInHomeDecoration());
+		Collections.sort(sortedPrice);
 
-        //Verify that prices are sorted from smallest to largest
-        Assert.assertEquals(sortedPrice, pages.getLaptopsTab().getPricesOfProductsInHomeDecoration());
-    }
+		// Select "Lowest Price" from "Sort By";
+		BrowserUtils.scrollDownWithPageDown();
+		pages.getLaptopsTab().selectSortType("Lowest Price");
 
-    //Verify that sort 'Highest price' functionality
-    @Test(priority = 3)
-    public void testSortedFromLargestToSmallest(){
-        // Sort prices from largest to smallest
-        List<Integer> sortedPrice = new ArrayList<>(pages.getLaptopsTab().getPricesOfProductsInHomeDecoration());
-        sortedPrice.sort(Comparator.reverseOrder());
+		// Verify that prices are sorted from smallest to largest
+		Assert.assertEquals(sortedPrice, pages.getLaptopsTab().getPricesOfProductsInHomeDecoration());
+	}
 
-        //Select "Highest Price" from "Sort By"
-        pages.getLaptopsTab().selectSortType("Highest Price");
+	// Verify that sort 'Highest price' functionality
+	@Test(priority = 3)
+	public void testSortedFromLargestToSmallest() {
+		// Sort prices from largest to smallest
+		List<Integer> sortedPrice = new ArrayList<>(pages.getLaptopsTab().getPricesOfProductsInHomeDecoration());
+		sortedPrice.sort(Comparator.reverseOrder());
 
-        Assert.assertEquals(sortedPrice, pages.getLaptopsTab().getPricesOfProductsInHomeDecoration());
-    }
+		// Select "Highest Price" from "Sort By"
+		pages.getLaptopsTab().selectSortType("Highest Price");
 
-    //Verify that sort 'A-Z' functionality
-    @Test(priority = 4)
-    public void testsortedTitlesFromAToZ(){
-        //Sort titles from A to Z
-        List<String> sortedTitles = new ArrayList<>(pages.getLaptopsTab().getTitlesOfProductsInHomeDecoration());
-        Collections.sort(sortedTitles);
+		Assert.assertEquals(sortedPrice, pages.getLaptopsTab().getPricesOfProductsInHomeDecoration());
+	}
 
-        //Select "A-Z" from "Sort By"
-        pages.getLaptopsTab().selectSortType("A-Z");
+	// Verify that sort 'A-Z' functionality
+	@Test(priority = 4)
+	public void testsortedTitlesFromAToZ() {
+		// Sort titles from A to Z
+		List<String> sortedTitles = new ArrayList<>(pages.getLaptopsTab().getTitlesOfProductsInHomeDecoration());
+		Collections.sort(sortedTitles);
 
-        Assert.assertEquals(sortedTitles, pages.getLaptopsTab().getTitlesOfProductsInHomeDecoration());
-    }
+		// Select "A-Z" from "Sort By"
+		pages.getLaptopsTab().selectSortType("A-Z");
 
-    //Verify that sort 'Z-A' functionality
-    @Test(priority = 5)
-    public void testsortedTitlesFromZToA(){
-        //Sort titles from Z to A
-        List<String> sortedTitles = new ArrayList<>(pages.getLaptopsTab().getTitlesOfProductsInHomeDecoration());
-        sortedTitles.sort(Comparator.reverseOrder());
+		Assert.assertEquals(sortedTitles, pages.getLaptopsTab().getTitlesOfProductsInHomeDecoration());
+	}
 
-        //Select "Z-A" from "Sort By"
-        pages.getLaptopsTab().selectSortType("Z-A");
+	// Verify that sort 'Z-A' functionality
+	@Test(priority = 5)
+	public void testsortedTitlesFromZToA() {
+		// Sort titles from Z to A
+		List<String> sortedTitles = new ArrayList<>(pages.getLaptopsTab().getTitlesOfProductsInHomeDecoration());
+		sortedTitles.sort(Comparator.reverseOrder());
 
-        Assert.assertEquals(sortedTitles, pages.getLaptopsTab().getTitlesOfProductsInHomeDecoration());
-    }
+		// Select "Z-A" from "Sort By"
+		pages.getLaptopsTab().selectSortType("Z-A");
 
-    @Test(priority = 6)
-    public void testAreSelectedProductsInTheCart() {
-        List<String> products = new ArrayList<>();
+		Assert.assertEquals(sortedTitles, pages.getLaptopsTab().getTitlesOfProductsInHomeDecoration());
+	}
 
-        //Click on add to cart button for the product you want
-        products.add(pages.getLaptopsTab().placeOrder("HP Pavilion 15-DK1056WM"));
-        products.add(pages.getLaptopsTab().placeOrder("Microsoft Surface Laptop 4"));
+	@Test(priority = 6)
+	public void testAreSelectedProductsInTheCart() {
+		List<String> products = new ArrayList<>();
 
-        //Click on cart button
-        pages.getLaptopsTab().clickOnCartButton();
-        BrowserUtils.wait(1);
+		// Click on add to cart button for the product you want
+		products.add(pages.getLaptopsTab().placeOrder("HP Pavilion 15-DK1056WM"));
+		products.add(pages.getLaptopsTab().placeOrder("Microsoft Surface Laptop 4"));
 
-        //Verify that selected products are on the cart
-        Assert.assertEquals(pages.getLaptopsTab().getProductsNamesOnCart(), products);
-    }
+		// Click on cart button
+		pages.getLaptopsTab().clickOnCartButton();
+		BrowserUtils.wait(1);
+
+		// Verify that selected products are on the cart
+		Assert.assertEquals(pages.getLaptopsTab().getProductsNamesOnCart(), products);
+	}
+
 }
