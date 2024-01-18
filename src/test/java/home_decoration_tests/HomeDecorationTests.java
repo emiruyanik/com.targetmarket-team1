@@ -52,7 +52,7 @@ public class HomeDecorationTests extends Hooks {
 	}
 
 	@Test(priority = 4)
-	public void testsortedTitlesFromAToZ(){
+	public void testSortedTitlesFromAToZ(){
 		//Sort titles from A to Z
 		List<String> sortedTitles = new ArrayList<>(pages.getHomeDecorationTab().getTitlesOfProductsInHomeDecoration());
 		Collections.sort(sortedTitles);
@@ -65,7 +65,7 @@ public class HomeDecorationTests extends Hooks {
 	}
 
 	@Test(priority = 5)
-	public void testsortedTitlesFromZToA(){
+	public void testSortedTitlesFromZToA(){
 		//Sort titles from Z to A
 		List<String> sortedTitles = new ArrayList<>(pages.getHomeDecorationTab().getTitlesOfProductsInHomeDecoration());
 		sortedTitles.sort(Comparator.reverseOrder());
