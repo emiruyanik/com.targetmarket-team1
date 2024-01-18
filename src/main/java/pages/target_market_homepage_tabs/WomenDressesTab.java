@@ -13,16 +13,16 @@ public class WomenDressesTab extends TargetMarketHomePage {
     private List<WebElement> womenDressPrices;
     @FindBy(css=".btn-danger")
     private List<WebElement> addToCartButtons;
-    public String placeOrder(String skincareName) {
+    public String placeOrder(String womenDressesName) {
         List<String> titles = womenDressTitles.stream().map(WebElement::getText).toList();
-        actions.moveToElement(addToCartButtons.get(titles.indexOf(skincareName)));
+        actions.moveToElement(addToCartButtons.get(titles.indexOf(womenDressesName)));
         try {
-            addToCartButtons.get(titles.indexOf(skincareName)).click();
+            addToCartButtons.get(titles.indexOf(womenDressesName)).click();
         }
         catch (Exception exception) {
-            addToCartButtons.get(titles.indexOf(skincareName)).click();
+            addToCartButtons.get(titles.indexOf(womenDressesName)).click();
         }
-        return skincareName;
+        return womenDressesName;
     }
 
     public boolean isSortedFromSmallToBigPrice() {
