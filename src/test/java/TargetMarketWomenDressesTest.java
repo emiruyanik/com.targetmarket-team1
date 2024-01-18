@@ -68,7 +68,7 @@ public class TargetMarketWomenDressesTest extends Hooks {
         // add products to the cart
         List<String> list = new ArrayList<>();
         list.add("frock gold printed");
-        list.add("Stiched Kurta plus trouser");
+        list.add("Ladies Multicolored Dress");
         pages.getWomenDressesTab().placeOrder("frock gold printed");
         pages.getWomenDressesTab().placeOrder("Ladies Multicolored Dress");
 
