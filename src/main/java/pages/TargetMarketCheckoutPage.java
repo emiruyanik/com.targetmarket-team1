@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.BrowserUtils;
 
-public class TargetMarketCheckoutPage extends BasePage {
+public class TargetMarketCheckoutPage extends TargetMarketHomePage {
 
 	@FindBy(id = "firstName")
 	private WebElement nameField;

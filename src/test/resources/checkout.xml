@@ -1,0 +1,9 @@
+<suite name="checkout">
+    <test name="test-checkout-with-chrome-driver">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="checkout_process_tests.TargetMarketCheckoutPageTest"/>
+            <class name="checkout_process_tests.TargetMarketCheckoutPageInvalidCredentialsTest"/>
+        </classes>
+    </test>
+</suite>

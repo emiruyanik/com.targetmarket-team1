@@ -3,6 +3,7 @@ package checkout_process_tests;
 import base_test.Hooks;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.Pages;
 
 public class TargetMarketCheckoutPageInvalidCredentialsTest extends Hooks {
 
