@@ -9,13 +9,31 @@ package login_page_tests;
 
 import base_test.Hooks;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
+import utils.DriverManager;
+import utils.Pages;
 
-public class LoginProcessTest extends Hooks {
+public class LoginProcessTest {
+
+	public Pages pages = new Pages();
+
+	public SoftAssert softAssert = new SoftAssert();
+
+	@Parameters("browser")
+	@BeforeMethod
+	void setUp(String browserType) {
+		DriverManager.getWebDriver(browserType);
+	}
+
+	@AfterMethod
+	void tearDown() {
+		DriverManager.closeDriver();
+	}
 
 	@Test(dataProvider = "users")
 	public void testLoginProcessWithValidCredentials(String username, String welcomeText) {
+
 		// 1-Go to https://test.inar-academy.com/target-market.
 		pages.getHomePage().clickOnTargetMarketLink();
 

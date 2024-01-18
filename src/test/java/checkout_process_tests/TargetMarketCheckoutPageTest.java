@@ -5,31 +5,31 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TargetMarketCheckoutPageTest extends Hooks {
-    @Test
-    void testCheckoutProcessWithValidCredentials() {
-        //* 1-Go to https://test.inar-academy.com/target-market
-        pages.getHomePage().clickOnTargetMarketLink();
-        pages.getTargetMarketLoginPage().login("standard_user", "secret_password");
 
-        //click on smartphones
-        pages.getTargetMarketHomePage().selectCategoryTab("Smartphones");
+	@Test
+	void testCheckoutProcessWithValidCredentials() {
+		// * 1-Go to https://test.inar-academy.com/target-market
+		pages.getHomePage().clickOnTargetMarketLink();
+		pages.getTargetMarketLoginPage().login("standard_user", "secret_password");
 
-        //add products to the cart
-        pages.getSmartphoneTab().placeOrder("Samsung Universe 9");
-        pages.getSmartphoneTab().placeOrder("iPhone X");
+		// click on smartphones
+		pages.getTargetMarketHomePage().selectCategoryTab("Smartphones");
 
-        pages.getSmartphoneTab().clickOnCartButton();
+		// add products to the cart
+		pages.getSmartphoneTab().placeOrder("Samsung Universe 9");
+		pages.getSmartphoneTab().placeOrder("iPhone X");
 
-        pages.getTargetMarketHomePage().clickGoToCheckoutButton();
+		pages.getSmartphoneTab().clickOnCartButton();
 
-        pages.getTargetMarketCheckoutPage().placeOrderProcess("John", "Sanchez",
-                "Main Strett 15D 07560", "4938281746192845", "5457894231");
+		pages.getTargetMarketHomePage().clickGoToCheckoutButton();
 
-        String expectedMessage = "Thanks!";
-        String actualMessage = pages.getTargetMarketCheckoutPage().getThanksMessage();
+		pages.getTargetMarketCheckoutPage()
+			.placeOrderProcess("John", "Sanchez", "Main Strett 15D 07560", "4938281746192845", "5457894231");
 
-        Assert.assertEquals(expectedMessage, actualMessage);
+		String expectedMessage = "Thanks!";
+		String actualMessage = pages.getTargetMarketCheckoutPage().getThanksMessage();
 
+		Assert.assertEquals(expectedMessage, actualMessage);
+	}
 
-    }
 }
