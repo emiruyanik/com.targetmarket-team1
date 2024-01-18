@@ -22,19 +22,19 @@ public class AllTab extends TargetMarketHomePage {
 	private List<WebElement> changingCountButtons;
 
 	@FindBy(xpath = "//button[@class='fs-4 ms-2 btn btn-outline-dark btn-sm']/../span")
-	private WebElement countOfProductOnCart;
+	private List<WebElement> countOfProductsOnCart;
 
 	@FindBy(css = "p.mb-0.fs-2")
 	private WebElement totalPriceOnCart;
 
-	public void placeOrder(String phoneName) {
+	public void placeOrder(String productName) {
 		List<String> titles = allProductsTitles.stream().map(WebElement::getText).toList();
-		actions.moveToElement(addToCartButtons.get(titles.indexOf(phoneName)));
+		actions.moveToElement(addToCartButtons.get(titles.indexOf(productName)));
 		try {
-			addToCartButtons.get(titles.indexOf(phoneName)).click();
+			addToCartButtons.get(titles.indexOf(productName)).click();
 		}
 		catch (Exception ex) {
-			addToCartButtons.get(titles.indexOf(phoneName)).click();
+			addToCartButtons.get(titles.indexOf(productName)).click();
 		}
 	}
 
@@ -72,8 +72,8 @@ public class AllTab extends TargetMarketHomePage {
 			.click();
 	}
 
-	public int getCountOfProductOnCart() {
-		return Integer.parseInt(countOfProductOnCart.getText());
+	public int getCountOfProductOnCart(String productName) {
+		return Integer.parseInt(countOfProductsOnCart.get(getProductsNamesOnCart().indexOf(productName)).getText());
 	}
 
 	public String getTotalPriceOnCart() {
