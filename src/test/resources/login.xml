@@ -2,27 +2,14 @@
     <test name = "testLoginWithChromeDriver">
         <parameter name ="browser" value ="chrome"/>
         <classes>
-            <class name = "login_page_tests.LoginProcessTest">
-                <method>
-                    <include>testLoginProcessWithValidCredentials</include>
-                    <include>testLoginProcessWithLockedUsername</include>
-                    <include>testLoginProcessWithInvalidCredentials</include>
-                </method>
-
-            </class>
+            <class name = "login_page_tests.LoginProcessTest"/>
         </classes>
     </test>
 
     <test name = "testLoginWithEdgeDriver">
         <parameter name ="browser" value ="edge"/>
         <classes>
-            <class name = "login_page_tests.LoginProcessTest">
-                <method>
-                    <include>testLoginProcessWithValidCredentials</include>
-                    <include>testLoginProcessWithLockedUsername</include>
-                    <include>testLoginProcessWithInvalidCredentials</include>
-                </method>
-            </class>
+            <class name = "login_page_tests.LoginProcessTest"/>
         </classes>
     </test>
 </suite>

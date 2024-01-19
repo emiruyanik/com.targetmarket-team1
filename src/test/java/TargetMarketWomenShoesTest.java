@@ -79,10 +79,8 @@ public class TargetMarketWomenShoesTest extends Hooks {
 	void isProductInCartPageTest() {
 		// add products to the cart
 		List<String> list = new ArrayList<>();
-		list.add("frock gold printed");
-		list.add("Stiched Kurta plus trouser");
-		pages.getWomenShoesTab().placeOrder("frock gold printed");
-		pages.getWomenShoesTab().placeOrder("Ladies Multicolored Dress");
+		list.add(pages.getWomenShoesTab().placeOrder("Chappals & Shoe Ladies Metallic"));
+		list.add(pages.getWomenShoesTab().placeOrder("Women Strip Heel"));
 
 		// click on cart button
 		pages.getWomenShoesTab().clickOnCartButton();

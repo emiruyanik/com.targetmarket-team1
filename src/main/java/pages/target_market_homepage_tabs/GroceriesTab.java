@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import pages.TargetMarketHomePage;
 
 import java.util.List;
+import java.util.Locale;
 
 public class GroceriesTab extends TargetMarketHomePage {
 
@@ -51,7 +52,7 @@ public class GroceriesTab extends TargetMarketHomePage {
 	}
 
 	public List<String> getStringOfTitles() {
-		return groceriesTitles.stream().map(title -> title.getText().toLowerCase()).toList();
+		return groceriesTitles.stream().map(title -> title.getText().toLowerCase(Locale.ROOT)).toList();
 
 	}
 

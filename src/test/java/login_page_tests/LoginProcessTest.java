@@ -7,7 +7,6 @@
 
 package login_page_tests;
 
-import base_test.Hooks;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
@@ -16,7 +15,7 @@ import utils.Pages;
 
 public class LoginProcessTest {
 
-	public Pages pages = new Pages();
+	public Pages pages ;
 
 	public SoftAssert softAssert = new SoftAssert();
 
@@ -24,6 +23,7 @@ public class LoginProcessTest {
 	@BeforeMethod
 	void setUp(String browserType) {
 		DriverManager.getWebDriver(browserType);
+		pages = new Pages();
 	}
 
 	@AfterMethod

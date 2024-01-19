@@ -1,0 +1,30 @@
+<suite name = "target_market_homepage" >
+    <test name ="homepage_test_with_chromeDriver">
+        <parameter name = "browser" value = "chrome"/>
+        <classes>
+            <class name="HomeDecorationTests"/>
+            <class name="TargetMarketAllTabTest"/>
+            <class name="TargetMarketFurnitureTests"/>
+            <class name="TargetMarketGroceriesTest"/>
+            <class name="TargetMarketLaptopsTest"/>
+            <class name="TargetMarketSkinCareTest"/>
+            <class name="TargetMarketSmartPhonesTest"/>
+            <class name="TargetMarketWomenDressesTest"/>
+            <class name="TargetMarketWomenShoesTest"/>
+        </classes>
+    </test>
+    <test name ="homepage_test_with_edgeDriver">
+        <parameter name = "browser" value = "edge"/>
+        <classes>
+            <class name="HomeDecorationTests"/>
+            <class name="TargetMarketAllTabTest"/>
+            <class name="TargetMarketFurnitureTests"/>
+            <class name="TargetMarketGroceriesTest"/>
+            <class name="TargetMarketLaptopsTest"/>
+            <class name="TargetMarketSkinCareTest"/>
+            <class name="TargetMarketSmartPhonesTest"/>
+            <class name="TargetMarketWomenDressesTest"/>
+            <class name="TargetMarketWomenShoesTest"/>
+        </classes>
+    </test>
+</suite>

@@ -11,6 +11,7 @@ import utils.DriverManager;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 public class SmartphoneTab extends TargetMarketHomePage {
 
@@ -59,7 +60,7 @@ public class SmartphoneTab extends TargetMarketHomePage {
 	}
 
 	public List<String> getStringOfTitles() {
-		return smartPhoneTitles.stream().map(title -> title.getText().toLowerCase()).toList();
+		return smartPhoneTitles.stream().map(title -> title.getText().toLowerCase(Locale.ROOT)).toList();
 	}
 
 }
