@@ -1,0 +1,19 @@
+<suite name="end_to_end">
+    <listeners>
+        <listener class-name ="pages.ExtentReportListener"/>
+    </listeners>
+    <test name="test-end_to_end-with-chrome-driver">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="EndToEndTest"/>
+        </classes>
+    </test>
+
+    <test name="test-end_to_end-with-edge-driver">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="EndToEndTest"/>
+        </classes>
+    </test>
+
+</suite>

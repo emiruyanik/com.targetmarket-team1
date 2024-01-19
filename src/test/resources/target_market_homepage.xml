@@ -1,4 +1,7 @@
 <suite name = "target_market_homepage" >
+    <listeners>
+        <listener class-name ="pages.ExtentReportListener"/>
+    </listeners>
     <test name ="homepage_test_with_chromeDriver">
         <parameter name = "browser" value = "chrome"/>
         <classes>

@@ -6,7 +6,7 @@
 
     <groupId>org.inar</groupId>
     <artifactId>com.targetmarket-team1</artifactId>
-    <version>1.0.0</version>
+    <version>1.3.10</version>
 
 
     <properties>
@@ -27,7 +27,6 @@
             <version>${selenium.version}</version>
         </dependency>
 
-
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
@@ -36,6 +35,19 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.9.0</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>5.1.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -58,6 +70,7 @@
                         <suiteXmlFile>src/test/resources/login.xml</suiteXmlFile>
                         <suiteXmlFile>src/test/resources/checkout.xml</suiteXmlFile>
                         <suiteXmlFile>src/test/resources/target_market_homepage.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/end_to_end.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
