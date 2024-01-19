@@ -12,7 +12,6 @@ public class Hooks {
 
 	public SoftAssert softAssert = new SoftAssert();
 
-
 	@Parameters("browser")
 	@BeforeClass
 	public void setUpTestEnvironment(String browserType) {

@@ -1,4 +1,7 @@
 <suite name="checkout" parallel="classes" thread-count="2">
+    <listeners>
+        <listener class-name ="pages.ExtentReportListener"/>
+    </listeners>
     <test name="test-checkout-with-chrome-driver">
         <parameter name="browser" value="chrome"/>
         <classes>

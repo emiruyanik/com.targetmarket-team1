@@ -46,6 +46,9 @@ public class TargetMarketCheckoutPage extends TargetMarketHomePage {
 	@FindBy(xpath = "(//a[@href='/target-market'])[1]")
 	private WebElement iconOfImage;
 
+	@FindBy(css = "div > .btn-close")
+	private WebElement closeThanksMessage;
+
 	// Finding alternative web elements
 	// @FindBy(xpath = "//div[text()='Card number must be 16 digits']")
 	// private WebElement cardNumberMissingAlertMessage;
@@ -107,6 +110,10 @@ public class TargetMarketCheckoutPage extends TargetMarketHomePage {
 
 	public void clickOnInarAcademyImage() {
 		iconOfImage.click();
+	}
+
+	public void clickOnCloseButtonOfThanksMessage() {
+		closeThanksMessage.click();
 	}
 
 }

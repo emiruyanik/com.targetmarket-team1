@@ -15,7 +15,7 @@ public class TargetMarketHomePage extends BasePage {
 	@FindBy(xpath = "//h5[@class='display-5']")
 	private WebElement welcomeMessage;
 
-	@FindBy(xpath = "//button[contains(text(),'Logout')]")
+	@FindBy(css = ".logout")
 	private WebElement logoutButton;
 
 	@FindBy(css = "span.cat-name")
@@ -38,9 +38,6 @@ public class TargetMarketHomePage extends BasePage {
 
 	@FindBy(xpath = "//button[text()='Close']")
 	private WebElement closeButton;
-
-	@FindBy(id = "splide02-list")
-	private WebElement splideList;
 
 	public TargetMarketHomePage() {
 		super();
@@ -96,6 +93,10 @@ public class TargetMarketHomePage extends BasePage {
 
 	public void clickToCloseButton() {
 		closeButton.click();
+	}
+
+	public void clickToLogoutButton() {
+		logoutButton.click();
 	}
 
 }

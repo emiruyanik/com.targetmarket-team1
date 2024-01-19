@@ -1,4 +1,7 @@
 <suite name = "login">
+    <listeners>
+        <listener class-name ="pages.ExtentReportListener"/>
+    </listeners>
     <test name = "testLoginWithChromeDriver">
         <parameter name ="browser" value ="chrome"/>
         <classes>

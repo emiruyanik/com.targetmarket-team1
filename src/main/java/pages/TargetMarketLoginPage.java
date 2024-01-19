@@ -23,6 +23,9 @@ public class TargetMarketLoginPage extends BasePage {
 	@FindBy(id = "password-error-alert")
 	private WebElement invalidPasswordErrorMessage;
 
+	@FindBy(css = ".text-danger > strong")
+	private WebElement loginText;
+
 	public void enterUserName(String username) {
 		usernameTextField.sendKeys(username);
 	}
@@ -51,6 +54,10 @@ public class TargetMarketLoginPage extends BasePage {
 
 	public String getInvalidPasswordErrorMessage() {
 		return invalidPasswordErrorMessage.getText();
+	}
+
+	public String getLoginText() {
+		return loginText.getText();
 	}
 
 }
