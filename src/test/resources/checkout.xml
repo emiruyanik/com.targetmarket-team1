@@ -1,9 +1,18 @@
-<suite name="checkout">
+<suite name="checkout" parallel="classes" thread-count="2">
     <test name="test-checkout-with-chrome-driver">
         <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="checkout_process_tests.TargetMarketCheckoutPageTest"/>
             <class name="checkout_process_tests.TargetMarketCheckoutPageInvalidCredentialsTest"/>
+            <class name="checkout_process_tests.TargetMarketCheckoutPageTest"/>
         </classes>
     </test>
+
+    <test name="test-checkout-with-edge-driver">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="checkout_process_tests.TargetMarketCheckoutPageInvalidCredentialsTest"/>
+            <class name="checkout_process_tests.TargetMarketCheckoutPageTest"/>
+        </classes>
+    </test>
+
 </suite>
