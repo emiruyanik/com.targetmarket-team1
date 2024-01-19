@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <suite name="end_to_end">
     <listeners>
-        <listener class-name ="pages.ExtentReportListener"/>
+        <listener class-name ="listeners.ExtentReportListener"/>
     </listeners>
     <test name="test-end_to_end-with-chrome-driver">
         <parameter name="browser" value="chrome"/>

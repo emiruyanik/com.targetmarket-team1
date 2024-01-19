@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utils.BrowserUtils;
@@ -82,6 +81,7 @@ public class TargetMarketCheckoutPage extends TargetMarketHomePage {
 
 	public void placeOrderProcess(String firstname, String lastName, String address, String cardNumber,
 			String phoneNumber) {
+		BrowserUtils.wait(1);
 		enterFirstName(firstname);
 		enterLastName(lastName);
 		enterAddress(address);
@@ -89,7 +89,7 @@ public class TargetMarketCheckoutPage extends TargetMarketHomePage {
 		BrowserUtils.scrollDownWithPageDown();
 		enterPhoneNumber(phoneNumber);
 		clickOnPlaceOrderButton();
-		BrowserUtils.wait(2);
+		BrowserUtils.wait(1);
 	}
 
 	public String getThanksMessage() {
