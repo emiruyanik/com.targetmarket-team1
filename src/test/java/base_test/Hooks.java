@@ -8,13 +8,15 @@ import utils.Pages;
 
 public class Hooks {
 
-	public Pages pages = new Pages();
+	protected Pages pages;
 
 	public SoftAssert softAssert = new SoftAssert();
 
+	@Parameters("browser")
 	@BeforeClass
-	public void setUpTestEnvironment() {
-		DriverManager.getWebDriver();
+	public void setUpTestEnvironment(String browserType) {
+		DriverManager.getWebDriver(browserType);
+		pages = new Pages();
 	}
 
 	@AfterClass

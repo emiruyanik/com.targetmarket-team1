@@ -5,14 +5,14 @@ import org.openqa.selenium.interactions.Actions;
 
 public class BrowserUtils {
 
-	private static Actions actions = new Actions(DriverManager.getWebDriver());
-
 	public static void scrollDownWithPageDown() {
+		Actions actions = new Actions(DriverManager.getWebDriver());
 		actions.keyDown(Keys.PAGE_DOWN).release().build().perform();
 		wait(1);
 	}
 
 	public static void scrollUpWithPageUp() {
+		Actions actions = new Actions(DriverManager.getWebDriver());
 		actions.keyDown(Keys.PAGE_UP).release().build().perform();
 		wait(1);
 	}
@@ -22,16 +22,16 @@ public class BrowserUtils {
 			Thread.sleep((long) timeout * 1000);
 		}
 		catch (InterruptedException e) {
-			e.printStackTrace();
+			throw new RuntimeException();
 		}
 	}
 
 	public static void wait(int timeout) {
 		try {
-			Thread.sleep(timeout * 1000);
+			Thread.sleep(timeout * 1000L);
 		}
 		catch (InterruptedException e) {
-			e.printStackTrace();
+			throw new RuntimeException();
 		}
 	}
 

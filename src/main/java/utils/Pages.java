@@ -8,56 +8,98 @@ import pages.target_market_homepage_tabs.*;
 
 public class Pages {
 
+	private HomePage homePage;
+
+	private TargetMarketLoginPage targetMarketLoginPage;
+
+	private TargetMarketHomePage targetMarketHomePage;
+
+	private AllTab allTab;
+
+	private SmartphoneTab smartphoneTab;
+
+	private HomeDecorationTab homeDecorationTab;
+
+	private FurnitureTab furnitureTab;
+
+	private SkincareTab skincareTab;
+
+	private GroceriesTab groceriesTab;
+
+	private WomenDressesTab womenDressesTab;
+
+	private WomenShoesTab womenShoesTab;
+
+	private TargetMarketCheckoutPage targetMarketCheckoutPage;
+
+	private LaptopsTab laptopsTab;
+
+	public Pages() {
+		this.homePage = new HomePage();
+		this.targetMarketHomePage = new TargetMarketHomePage();
+		this.targetMarketLoginPage = new TargetMarketLoginPage();
+		this.allTab = new AllTab();
+		this.smartphoneTab = new SmartphoneTab();
+		this.homeDecorationTab = new HomeDecorationTab();
+		this.furnitureTab = new FurnitureTab();
+		this.skincareTab = new SkincareTab();
+		this.groceriesTab = new GroceriesTab();
+		this.womenDressesTab = new WomenDressesTab();
+		this.womenShoesTab = new WomenShoesTab();
+		this.targetMarketCheckoutPage = new TargetMarketCheckoutPage();
+		this.laptopsTab = new LaptopsTab();
+	}
+
 	public HomePage getHomePage() {
-		return new HomePage();
+		return homePage;
 	}
 
 	public TargetMarketLoginPage getTargetMarketLoginPage() {
-		return new TargetMarketLoginPage();
+		return targetMarketLoginPage;
 	}
 
 	public TargetMarketHomePage getTargetMarketHomePage() {
-		return new TargetMarketHomePage();
+		return targetMarketHomePage;
 	}
 
 	public AllTab getAllTab() {
-		return new AllTab();
+		return allTab;
 	}
 
 	public SmartphoneTab getSmartphoneTab() {
-		return new SmartphoneTab();
+		return smartphoneTab;
 	}
 
 	public HomeDecorationTab getHomeDecorationTab() {
-		return new HomeDecorationTab();
+		return homeDecorationTab;
 	}
 
 	public FurnitureTab getFurnitureTab() {
-		return new FurnitureTab();
+		return furnitureTab;
 	}
 
 	public SkincareTab getSkincareTab() {
-		return new SkincareTab();
+		return skincareTab;
 	}
 
 	public GroceriesTab getGroceriesTab() {
-		return new GroceriesTab();
+		return groceriesTab;
 	}
 
 	public WomenDressesTab getWomenDressesTab() {
-		return new WomenDressesTab();
+		return womenDressesTab;
 	}
 
 	public WomenShoesTab getWomenShoesTab() {
-		return new WomenShoesTab();
+		return womenShoesTab;
 	}
 
 	public TargetMarketCheckoutPage getTargetMarketCheckoutPage() {
-		return new TargetMarketCheckoutPage();
+		return targetMarketCheckoutPage;
 	}
 
 	public LaptopsTab getLaptopsTab() {
-		return new LaptopsTab();
+		return laptopsTab;
 	}
 
 }

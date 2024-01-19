@@ -55,7 +55,7 @@
                 <version>3.2.3</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/login.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/checkout.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

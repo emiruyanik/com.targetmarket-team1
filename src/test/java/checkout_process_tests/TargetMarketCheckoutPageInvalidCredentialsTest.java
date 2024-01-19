@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class TargetMarketCheckoutPageInvalidCredentialsTest extends Hooks {
 
-	@Test(priority = 0)
+	@Test(priority = 1)
 	void checkoutProcessWithInvalidPhoneNumberTest() {
 		// * 1-Go to https://test.inar-academy.com/target-market
 		pages.getHomePage().clickOnTargetMarketLink();
@@ -21,7 +21,9 @@ public class TargetMarketCheckoutPageInvalidCredentialsTest extends Hooks {
 
 		pages.getSmartphoneTab().clickOnCartButton();
 
-		pages.getTargetMarketHomePage().clickGoToCheckoutButton();
+		pages.getSmartphoneTab().clickGoToCheckoutButton();
+
+		// John Sanchez Main Strett 15D 07560 4938281746192845 545789423
 
 		// Enter valid credentials with invalid phone number
 		pages.getTargetMarketCheckoutPage()
@@ -32,11 +34,12 @@ public class TargetMarketCheckoutPageInvalidCredentialsTest extends Hooks {
 
 		Assert.assertEquals(expectedMessage, actualMessage);
 
-		pages.getTargetMarketCheckoutPage().clickOnInarAcademyImage();
 	}
 
-	@Test(priority = 1)
+	@Test(priority = 2)
 	void checkoutProcessWithInvalidCardNumberTest() {
+		pages.getTargetMarketCheckoutPage().clickOnInarAcademyImage();
+
 		pages.getSmartphoneTab().clickOnCartButton();
 
 		pages.getTargetMarketHomePage().clickGoToCheckoutButton();
@@ -50,11 +53,11 @@ public class TargetMarketCheckoutPageInvalidCredentialsTest extends Hooks {
 
 		Assert.assertEquals(expectedMessage, actualMessage);
 
-		pages.getTargetMarketCheckoutPage().clickOnInarAcademyImage();
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 3)
 	void checkoutProcessWithMissingAddressTest() {
+		pages.getTargetMarketCheckoutPage().clickOnInarAcademyImage();
 
 		pages.getSmartphoneTab().clickOnCartButton();
 
