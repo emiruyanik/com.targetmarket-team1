@@ -15,7 +15,7 @@ import utils.Pages;
 
 public class LoginProcessTest {
 
-	public Pages pages ;
+	public Pages pages;
 
 	public SoftAssert softAssert = new SoftAssert();
 

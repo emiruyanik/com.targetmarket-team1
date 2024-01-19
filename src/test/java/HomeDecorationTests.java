@@ -82,7 +82,7 @@ public class HomeDecorationTests extends Hooks {
 
 		// Click on add to cart button for the product you want
 		products.add(pages.getHomeDecorationTab().placeOrder("3D Embellishment Art Lamp"));
-
+		products.add(pages.getHomeDecorationTab().placeOrder("Handcraft Chinese style"));
 
 		// Click on cart button
 		pages.getHomeDecorationTab().clickOnCartButton();
