@@ -5,6 +5,7 @@ import pages.TargetMarketHomePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import java.util.List;
+import java.util.Locale;
 
 public class WomenShoesTab extends TargetMarketHomePage {
 
@@ -56,7 +57,7 @@ public class WomenShoesTab extends TargetMarketHomePage {
 	}
 
 	public List<String> getStringOfTitles() {
-		return womenShoesPrices.stream().map(title -> title.getText().toLowerCase()).toList();
+		return womenShoesTitles.stream().map(title -> title.getText().toLowerCase(Locale.ROOT)).toList();
 	}
 
 }

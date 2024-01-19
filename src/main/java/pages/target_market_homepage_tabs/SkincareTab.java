@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import pages.TargetMarketHomePage;
 
 import java.util.List;
+import java.util.Locale;
 
 public class SkincareTab extends TargetMarketHomePage {
 
@@ -54,7 +55,7 @@ public class SkincareTab extends TargetMarketHomePage {
 	}
 
 	public List<String> getStringOfTitles() {
-		return skincareTitles.stream().map(title -> title.getText().toLowerCase()).toList();
+		return skincareTitles.stream().map(title -> title.getText().toLowerCase(Locale.ROOT)).toList();
 	}
 
 }

@@ -64,22 +64,6 @@ public class TargetMarketHomePage extends BasePage {
 		select.selectByVisibleText(sortType);
 
 	}
-
-	// alternative method for selectCategoryTab
-
-	// public void selectCategoryTab(String nameOfCategory) {
-	// for (WebElement w : categoriesTabs) {
-	// if (nameOfCategory.equalsIgnoreCase(w.getText())) {
-	// actions.moveToElement(w);
-	// try {
-	// w.click();
-	// } catch (Exception ex) {
-	// w.click();
-	//
-	// }
-	// }
-	// }
-	// }
 	public void selectCategoryTab(String nameOfCategory) {
 		wait.until(ExpectedConditions.visibilityOf(welcomeMessage));
 		if (nameOfCategory.equalsIgnoreCase("Womens Shoes") || nameOfCategory.equalsIgnoreCase("Womens Dresses")) {
