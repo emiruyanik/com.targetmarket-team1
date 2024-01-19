@@ -1,15 +1,9 @@
 package pages.target_market_homepage_tabs;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import pages.TargetMarketHomePage;
-import utils.BrowserUtils;
-import utils.DriverManager;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 

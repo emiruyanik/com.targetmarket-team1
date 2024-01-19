@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <suite name="checkout" parallel="classes" thread-count="2">
     <listeners>
-        <listener class-name ="pages.ExtentReportListener"/>
+        <listener class-name ="listeners.ExtentReportListener"/>
     </listeners>
     <test name="test-checkout-with-chrome-driver">
         <parameter name="browser" value="chrome"/>

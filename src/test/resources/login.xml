@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <suite name = "login">
     <listeners>
-        <listener class-name ="pages.ExtentReportListener"/>
+        <listener class-name ="listeners.ExtentReportListener"/>
     </listeners>
     <test name = "testLoginWithChromeDriver">
         <parameter name ="browser" value ="chrome"/>

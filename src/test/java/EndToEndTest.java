@@ -1,7 +1,9 @@
 import base_test.Hooks;
+import freemarker.template.Configuration;
 import org.testng.annotations.Test;
 import utils.BrowserUtils;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
