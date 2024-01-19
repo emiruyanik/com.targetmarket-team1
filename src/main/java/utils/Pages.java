@@ -34,6 +34,8 @@ public class Pages {
 
 	private LaptopsTab laptopsTab;
 
+	private TopsTab topsTab;
+
 	public Pages() {
 		this.homePage = new HomePage();
 		this.targetMarketHomePage = new TargetMarketHomePage();
@@ -48,6 +50,7 @@ public class Pages {
 		this.womenShoesTab = new WomenShoesTab();
 		this.targetMarketCheckoutPage = new TargetMarketCheckoutPage();
 		this.laptopsTab = new LaptopsTab();
+		this.topsTab = new TopsTab();
 	}
 
 	public HomePage getHomePage() {
@@ -100,6 +103,10 @@ public class Pages {
 
 	public LaptopsTab getLaptopsTab() {
 		return laptopsTab;
+	}
+
+	public TopsTab getTopsTab() {
+		return topsTab;
 	}
 
 }
