@@ -29,4 +29,32 @@ public class FurnitureTab extends TargetMarketHomePage {
 		return furnitureName;
 	}
 
+	public boolean isSortedFromSmallToBigPrice() {
+		for (int i = 0; i < getIntegerOfPrices().size() - 1; i++) {
+			if (getIntegerOfPrices().get(i) > getIntegerOfPrices().get(i + 1)) {
+				return false;
+			}
+
+		}
+		return true;
+	}
+
+	public boolean isSortedFromBigToSmallPrice() {
+		for (int i = 0; i < getIntegerOfPrices().size() - 1; i++) {
+			if (getIntegerOfPrices().get(i) < getIntegerOfPrices().get(i + 1)) {
+				return false;
+			}
+
+		}
+		return true;
+	}
+
+	public List<Integer> getIntegerOfPrices() {
+		return furniturePrices.stream().map(price -> Integer.parseInt(price.getText().substring(1))).toList();
+	}
+
+	public List<String> getStringOfTitles() {
+		return furnitureTitles.stream().map(title -> title.getText().toLowerCase()).toList();
+	}
+
 }
