@@ -1,6 +1,7 @@
 import base_test.Hooks;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.BrowserUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;

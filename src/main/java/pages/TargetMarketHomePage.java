@@ -64,6 +64,7 @@ public class TargetMarketHomePage extends BasePage {
 		select.selectByVisibleText(sortType);
 
 	}
+
 	public void selectCategoryTab(String nameOfCategory) {
 		wait.until(ExpectedConditions.visibilityOf(welcomeMessage));
 		if (nameOfCategory.equalsIgnoreCase("Womens Shoes") || nameOfCategory.equalsIgnoreCase("Womens Dresses")) {
