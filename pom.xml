@@ -71,6 +71,7 @@
                         <suiteXmlFile>src/test/resources/checkout.xml</suiteXmlFile>
                         <suiteXmlFile>src/test/resources/target_market_homepage.xml</suiteXmlFile>
                         <suiteXmlFile>src/test/resources/end_to_end.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/smokeSuite.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>

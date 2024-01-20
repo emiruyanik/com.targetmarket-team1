@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name = "smoke">
+    <listeners>
+        <listener class-name ="listeners.ExtentReportListener"/>
+    </listeners>
+    <test name = "testLoginWithChromeDriver">
+        <parameter name ="browser" value ="chrome"/>
+        <classes>
+            <class name = "login_page_tests.LoginProcessTest"/>
+        </classes>
+    </test>
+
+    <test name = "testLoginWithEdgeDriver">
+        <parameter name ="browser" value ="edge"/>
+        <classes>
+            <class name = "login_page_tests.LoginProcessTest"/>
+        </classes>
+    </test>
+
+    <test name="test-checkout-with-chrome-driver">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="checkout_process_tests.TargetMarketCheckoutPageInvalidCredentialsTest"/>
+            <class name="checkout_process_tests.TargetMarketCheckoutPageTest"/>
+        </classes>
+    </test>
+
+    <test name="test-checkout-with-edge-driver">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="checkout_process_tests.TargetMarketCheckoutPageInvalidCredentialsTest"/>
+            <class name="checkout_process_tests.TargetMarketCheckoutPageTest"/>
+        </classes>
+    </test>
+
+    <test name ="homepage_test_with_chromeDriver">
+        <parameter name = "browser" value = "chrome"/>
+        <classes>
+            <class name="HomeDecorationTests"/>
+            <class name="TargetMarketAllTabTest"/>
+            <class name="TargetMarketFurnitureTests"/>
+            <class name="TargetMarketGroceriesTest"/>
+            <class name="TargetMarketLaptopsTest"/>
+            <class name="TargetMarketSkinCareTest"/>
+            <class name="TargetMarketSmartPhonesTest"/>
+            <class name="TargetMarketWomenDressesTest"/>
+            <class name="TargetMarketWomenShoesTest"/>
+        </classes>
+    </test>
+    <test name ="homepage_test_with_edgeDriver">
+        <parameter name = "browser" value = "edge"/>
+        <classes>
+            <class name="HomeDecorationTests"/>
+            <class name="TargetMarketAllTabTest"/>
+            <class name="TargetMarketFurnitureTests"/>
+            <class name="TargetMarketGroceriesTest"/>
+            <class name="TargetMarketLaptopsTest"/>
+            <class name="TargetMarketSkinCareTest"/>
+            <class name="TargetMarketSmartPhonesTest"/>
+            <class name="TargetMarketWomenDressesTest"/>
+            <class name="TargetMarketWomenShoesTest"/>
+        </classes>
+    </test>
+
+    <test name="test-end_to_end-with-chrome-driver">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="EndToEndTest"/>
+        </classes>
+    </test>
+
+    <test name="test-end_to_end-with-edge-driver">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="EndToEndTest"/>
+        </classes>
+    </test>
+
+</suite>
